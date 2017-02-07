@@ -13,7 +13,7 @@ services:
     #   - zookeeper-data:/tmp/zookeeper/data
 
   kafka:
-    image: biggis/kafka:0.9.0.0
+    image: biggis/kafka:0.10.1.1
     hostname: kafka
     depends_on:
       - zookeeper

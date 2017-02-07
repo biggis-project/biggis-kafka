@@ -5,7 +5,7 @@ services:
 
 env:
   global:
-    - IMG=biggis/kafka:0.9.0.0
+    - IMG=biggis/kafka:0.10.1.1
 
 install:
   #login to dockerhub

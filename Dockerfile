@@ -40,4 +40,9 @@ WORKDIR /opt/kafka
 
 EXPOSE 9092 7203
 
+ADD healthcheck.sh /opt/kafka/
+
+HEALTHCHECK --interval=5s --timeout=20s --retries=3 \
+  CMD /opt/kafka/healthcheck.sh
+
 CMD ["/opt/kafka/start.sh"]

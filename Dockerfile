@@ -3,7 +3,6 @@ FROM biggis/base:java8-jre-alpine
 MAINTAINER wipatrick
 
 # The Scala 2.11 build is currently recommended by the project.
-# Once Flink 1.2 is available we can upgrade to 0.10.X
 ARG KAFKA_VERSION=0.10.1.1
 ARG SCALA_VERSION=2.11
 

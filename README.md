@@ -1,6 +1,5 @@
 # BigGIS Kafka
-[![Build Status](https://travis-ci.org/biggis-project/biggis-kafka.svg?branch=master)][Travis]
-[Travis]: https://travis-ci.org/biggis-project/biggis-kafka
+[![Build Status](https://api.travis-ci.org/biggis-project/biggis-kafka.svg)](https://travis-ci.org/biggis-project/biggis-kafka)
 Docker container for Apache Kafka
 
 ## Prerequisites

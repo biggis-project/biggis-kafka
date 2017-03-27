@@ -40,6 +40,7 @@ WORKDIR /opt/kafka
 EXPOSE 9092 7203
 
 ADD healthcheck.sh /opt/kafka/
+RUN chmod +x /opt/kafka/healthcheck.sh
 
 HEALTHCHECK --interval=5s --timeout=20s --retries=3 \
   CMD /opt/kafka/healthcheck.sh

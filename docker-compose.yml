@@ -2,7 +2,7 @@ version: '2.1'
 services:
 
   zookeeper:
-    image: biggis/zookeeper:3.4.6
+    image: biggis/zookeeper:3.4.9
     hostname: zookeeper
     ports:
       - "2181:2181"

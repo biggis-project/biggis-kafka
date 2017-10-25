@@ -1,0 +1,41 @@
+version: '2'
+services:
+
+  zookeeper:
+    image: biggis/zookeeper:3.4.9
+    hostname: zookeeper
+    ports:
+      - "2181:2181"
+    labels:
+      io.rancher.container.pull_image: 'always'
+    environment:
+      USER_ID: 1000
+      USER_NAME: zookeeper
+    volumes:
+      - zookeeper-data:/tmp/zookeeper/data
+
+  kafka:
+    image: biggis/kafka:0.10.1.1
+    hostname: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    labels:
+      io.rancher.container.pull_image: 'always'
+      io.rancher.scheduler.affinity:host_label: kafka=true
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: node1.biggis.project.de
+      USER_ID: 1000
+      USER_NAME: kafka
+      ZOOKEEPER_CONNECTION_STRING: zookeeper
+    volumes:
+      - kafka-data:/tmp/kafka/data
+
+volumes:
+  zookeeper-data:
+    driver: rancher-nfs
+    external: true
+  kafka-data:
+    driver: rancher-nfs
+    external: true

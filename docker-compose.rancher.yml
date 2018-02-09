@@ -13,6 +13,11 @@ services:
       USER_NAME: zookeeper
     volumes:
       - zookeeper-data:/tmp/zookeeper/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"
 
   kafka:
     image: biggis/kafka:0.10.1.1
@@ -31,6 +36,11 @@ services:
       ZOOKEEPER_CONNECTION_STRING: zookeeper
     volumes:
       - kafka-data:/tmp/kafka/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"      
 
 volumes:
   zookeeper-data:

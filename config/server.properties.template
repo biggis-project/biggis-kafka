@@ -32,6 +32,8 @@ advertised.host.name={{KAFKA_ADVERTISED_HOST_NAME}}
 # Enable topic deletion
 delete.topic.enable={{KAFKA_DELETE_TOPIC_ENABLE}}
 
+# Message size
+
 ############################# Socket Server Settings #############################
 
 # The port the socket server listens on
@@ -46,7 +48,8 @@ log.dirs=/tmp/kafka/data
 
 # The number of logical partitions per topic per server. More partitions allow greater parallelism
 # for consumption, but also mean more files.
-num.partitions=1
+num.partitions={{KAFKA_NUM_PARTITIONS}}
+message.max.bytes={{KAFKA_MESSAGE_MAX_BYTES}}
 
 ############################# Log Retention Policy #############################
 

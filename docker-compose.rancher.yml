@@ -31,16 +31,18 @@ services:
       io.rancher.scheduler.affinity:host_label: kafka=true
     environment:
       KAFKA_ADVERTISED_HOST_NAME: node1.biggis.project.de
+      KAFKA_NUM_PARTITIONS: 1
+      KAFKA_MESSAGE_MAX_BYTES: 1000000
+      ZOOKEEPER_CONNECTION_STRING: zookeeper
       USER_ID: 1000
       USER_NAME: kafka
-      ZOOKEEPER_CONNECTION_STRING: zookeeper
     volumes:
       - kafka-data:/tmp/kafka/data
     logging:
       driver: "json-file"
       options:
         max-size: "1m"
-        max-file: "1"      
+        max-file: "1"
 
 volumes:
   zookeeper-data:

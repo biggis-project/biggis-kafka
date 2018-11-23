@@ -20,6 +20,8 @@ cat /opt/kafka/config/server.properties.template | sed \
   -e "s|{{KAFKA_PORT}}|${KAFKA_PORT:-9092}|g" \
   -e "s|{{KAFKA_ADVERTISED_PORT}}|${KAFKA_ADVERTISED_PORT:-9092}|g" \
   -e "s|{{KAFKA_DELETE_TOPIC_ENABLE}}|${KAFKA_DELETE_TOPIC_ENABLE:-false}|g" \
+  -e "s|{{KAFKA_NUM_PARTITIONS}}|${KAFKA_NUM_PARTITIONS:-1}|g" \
+  -e "s|{{KAFKA_MESSAGE_MAX_BYTES}}|${KAFKA_MESSAGE_MAX_BYTES:-1000000}|g" \
    > /opt/kafka/config/server.properties
 
 # Kafka's built-in start scripts set the first three system properties here, but
